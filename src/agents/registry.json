@@ -1,0 +1,60 @@
+{
+    "intent_agent": {
+        "agent_name": "intent_agent",
+        "version": "1.0.0",
+        "capabilities": [
+            "intent_classification",
+            "entity_extraction",
+            "routing"
+        ],
+        "status": "active",
+        "registered_at": "2025-03-01T00:00:00Z",
+        "last_updated": "2025-03-03T10:00:00Z",
+        "configuration": {
+            "endpoint": "http://localhost:5000/api/v1/intent",
+            "environment": "development",
+            "model_settings": {
+                "temperature": 0.7,
+                "max_tokens": 150
+            }
+        },
+        "performance": {
+            "response_time_ms": 250,
+            "error_rate": 0.02,
+            "request_count": 1000
+        },
+        "load": {
+            "current_tasks": 0,
+            "max_tasks": 10
+        }
+    },
+    "chat_agent": {
+        "agent_name": "chat_agent",
+        "version": "1.0.0",
+        "capabilities": [
+            "chat",
+            "response_generation",
+            "context_management"
+        ],
+        "status": "active",
+        "registered_at": "2025-03-01T00:00:00Z",
+        "last_updated": "2025-03-03T10:00:00Z",
+        "configuration": {
+            "endpoint": "http://localhost:5000/api/v1/chat",
+            "environment": "development",
+            "model_settings": {
+                "temperature": 0.8,
+                "max_tokens": 200
+            }
+        },
+        "performance": {
+            "response_time_ms": 150,
+            "error_rate": 0.05,
+            "request_count": 1500
+        },
+        "load": {
+            "current_tasks": 0,
+            "max_tasks": 10
+        }
+    }
+}

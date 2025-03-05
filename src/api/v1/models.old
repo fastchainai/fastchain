@@ -1,0 +1,54 @@
+"""Pydantic models for API request/response validation."""
+from typing import Dict, List, Optional
+from pydantic import BaseModel
+
+
+class IntentRequest(BaseModel):
+    """Request model for intent processing."""
+    query: str
+    context: Optional[Dict] = None
+    metadata: Optional[Dict] = None
+
+
+class EntityInfo(BaseModel):
+    """Entity information extracted from the query."""
+    dates: List[str] = []
+    locations: List[str] = []
+    numbers: List[str] = []
+    organizations: List[str] = []
+    people: List[str] = []
+
+
+class IntentInfo(BaseModel):
+    """Intent classification details."""
+    intent: str
+    confidence: float
+    explanation: str
+    context_aware: bool = False
+    context_info: Optional[Dict] = None
+
+
+class IntentResponse(BaseModel):
+    """Response model for intent processing."""
+    query: str
+    intent: IntentInfo
+    entities: EntityInfo
+    routing: str
+    context: Dict
+    session_id: Optional[str] = None  # New: Session ID for context tracking
+
+
+class ContextResponse(BaseModel):
+    """Response model for context status."""
+    session_id: str
+    last_updated: str
+    query_history: List[Dict] = []
+    current_context: Dict
+    metadata: Optional[Dict] = None
+
+
+class ErrorResponse(BaseModel):
+    """Error response model."""
+    detail: str
+    error_type: str
+    timestamp: str

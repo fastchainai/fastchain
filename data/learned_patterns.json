@@ -1,0 +1,7 @@
+{
+  "patterns": [
+    {
+      "query_pattern": "What's the weather like?",
+      "intent": "weather",
+      "category": "weather_query",
+      "embedding": 

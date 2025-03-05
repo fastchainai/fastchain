@@ -1,0 +1,78 @@
+[project]
+name = "fastchain-ai"
+version = "0.1.0"
+description = "FastChain AI is a multi-agent platform that combines FastAPI's speed with Langchain's modular chain-based logic for efficient, scalable AI applications"
+authors = [
+  { name = "Jonathan Daddia", email = "jonathan@example.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "langchain-community>=0.0.10",
+    "langchain>=0.1.0",
+    "openai>=1.64.0",
+    "spacy>=3.8.4",
+    "trafilatura>=2.0.0",
+    "langgraph>=0.3.0",
+    "langchain-experimental>=0.3.4",
+    "langchain-core>=0.1.0",
+    "langfuse>=2.59.5",
+    "fastapi>=0.100.0",
+    "uvicorn>=0.34.0",
+    "pydantic>=2.0.0",
+    "requests>=2.31.0",
+    "httpx>=0.24.0",
+    "twilio>=9.4.6",
+    "networkx>=3.4.2",
+    "matplotlib>=3.10.1",
+    "async-timeout>=5.0.1",
+    "dynaconf>=3.2.10",
+    "redis>=5.2.1",
+    "python-multipart>=0.0.20",
+    "psutil>=7.0.0",
+    "numpy>=1.26.4",
+    "langchain-openai>=0.3.7",
+    "structlog>=25.1.0",
+    "opentelemetry-instrumentation>=0.51b0",
+    "opentelemetry-exporter-otlp>=1.30.0",
+    "opentelemetry-api>=1.30.0",
+    "opentelemetry-sdk>=1.30.0",
+    "elasticsearch>=8.17.1",
+    "kafka-python>=2.0.5",
+    "prometheus-fastapi-instrumentator>=7.0.2",
+    "prometheus-client>=0.21.1",
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=4.1.0",
+    "pytest-mock>=3.12.0",
+    "anthropic>=0.49.0",
+    "locust>=2.33.0",
+    "bandit>=1.8.3",
+    "safety>=3.2.4",
+    "pytest-timeout>=2.3.1",
+    "pandas>=2.2.3",
+    "gevent>=24.11.1",
+    "python-jose>=3.3.0",
+    "cryptography>=41.0.0",
+    "hatchling>=1.21.1",
+    "aiohttp>=3.8.0",
+    "build>=1.0.0",
+    "pip>=23.0.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/fastchainai/fastchain"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "pytest-mock",
+    "pytest-timeout",
+    "black",
+    "flake8",
+    "isort",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["intent_agent"]

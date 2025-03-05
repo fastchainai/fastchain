@@ -1,0 +1,102 @@
+[default]
+APP_TITLE = "FastChain AI"
+APP_DESCRIPTION = "FastChain AI is a multi-agent platform that combines FastAPI's speed with Langchain's modular chain-based logic for efficient, scalable AI applications"
+APP_VERSION = "1.0.0"
+
+# Server Configuration
+FASTAPI_HOST = "0.0.0.0"
+FASTAPI_PORT = 8000
+FASTAPI_RELOAD = true   
+FASTAPI_WORKERS = 1    
+FASTAPI_ROOT_PATH = ""  # If your application is behind a reverse proxy with a subpath   
+
+# Documentation & OpenAPI
+FASTAPI_DOCS_URL = "/docs"
+FASTAPI_REDOC_URL = "/redoc"
+FASTAPI_OPENAPI_URL = "/openapi.json"
+
+# Security Settings
+FASTAPI_SECRET_KEY = "your-fastapi-secret-key"
+FASTAPI_CORS_ORIGINS = ["*"]  # Adjust for production
+FASTAPI_CORS_METHODS = ["GET", "POST", "PUT", "DELETE"]
+FASTAPI_CORS_HEADERS = ["Content-Type", "Authorization"]
+FASTAPI_RATE_LIMIT = "100/minute"  # Rate limiting
+
+# Logging Configuration
+DEFAULT_LOG_LEVEL = "INFO"
+DEFAULT_LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+DEFAULT_LOG_DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
+DEFAULT_LOG_FILE_PATH = "logs/app.log"
+ENABLE_FILE_LOGGING = false  # New flag to control file logging
+
+# Observability Settings
+ENABLE_PROMETHEUS = true
+ENABLE_OPENTELEMETRY = true
+OTEL_SERVICE_NAME = "intent_agent_api"
+OTEL_EXPORTER_OTLP_ENDPOINT = "http://localhost:4317"
+
+# Database Configuration
+DATABASE_URL = ""  # Set in environment or secrets.toml
+DATABASE_POOL_SIZE = 5
+DATABASE_MAX_OVERFLOW = 10
+DATABASE_POOL_TIMEOUT = 30
+
+# Redis Configuration
+USE_REDIS_CACHING = false
+REDIS_URL = "redis://localhost:6379/0"
+REDIS_MAX_CONNECTIONS = 10
+REDIS_SOCKET_TIMEOUT = 5
+
+# Agent Configuration
+AGENT_REGISTRY_UPDATE_INTERVAL = 60  # seconds
+AGENT_DEFAULT_TIMEOUT = 30  # seconds
+AGENT_MAX_RETRIES = 3
+
+# Task Engine and Communication Settings
+TASK_QUEUE_MAX_SIZE = 1000
+TASK_DEFAULT_TIMEOUT = 30.0  # seconds
+TASK_RETRY_DELAY = 1.0  # seconds
+TASK_MAX_RETRY_DELAY = 10.0  # seconds
+TASK_MAX_RETRIES = 3  # Maximum number of retry attempts
+
+# Communication Metrics
+ENABLE_COMMUNICATION_METRICS = true
+COMMUNICATION_METRICS_PREFIX = "fastchain_communication"
+
+# External Service Integration
+[external_services]
+ELASTICSEARCH_URL = ""
+KAFKA_BROKERS = []
+LANGFUSE_PUBLIC_KEY = ""
+LANGFUSE_HOST = "https://cloud.langfuse.com"
+
+# Environment-specific configurations
+[development]
+FASTAPI_RELOAD = true
+LOG_LEVEL = "DEBUG"
+USE_REDIS_CACHING = false
+TASK_MAX_RETRIES = 5  # More retries in development
+
+[staging]
+FASTAPI_RELOAD = false
+LOG_LEVEL = "INFO"
+USE_REDIS_CACHING = true
+TASK_MAX_RETRIES = 3
+
+[production]
+FASTAPI_RELOAD = false
+LOG_LEVEL = "WARNING"
+USE_REDIS_CACHING = true
+REDIS_URL = ""  # Set in environment or secrets.toml
+SESSION_EXPIRATION_SECONDS = 1800
+TASK_MAX_RETRIES = 3
+TASK_DEFAULT_TIMEOUT = 20.0  # Shorter timeout in production
+
+# Feature flags
+[feature_flags]
+TIME_BASED_EXPIRATION = true
+SESSION_EXPIRATION_SECONDS = 3600  # 1 hour
+GARBAGE_COLLECTION = true
+ASYNC_OPERATIONS = true
+EVENT_EMISSION = true
+ENABLE_TELEMETRY = true

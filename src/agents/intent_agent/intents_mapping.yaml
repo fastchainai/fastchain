@@ -1,0 +1,70 @@
+# Intent Mappings
+
+# This YAML file defines mappings for different query intents classified by the Intent Agent.
+
+code_related:
+  - name: "Code Search"
+    description: "Retrieve specific code snippets from repositories."
+    example: "Find the function handling user authentication."
+  - name: "Code Refactoring"
+    description: "Identify improvements or best practices in existing code."
+    example: "Optimize this SQL query for better performance."
+  - name: "Dependency Lookup"
+    description: "Identify required libraries or dependencies."
+    example: "What dependencies does this module require?"
+  - name: "API Documentation"
+    description: "Retrieve API specs or example usage."
+    example: "How do I call the user authentication API?"
+
+log_incident:
+  - name: "Log Search"
+    description: "Retrieve logs matching specific error messages or patterns."
+    example: "Find all logs related to database connection failures."
+  - name: "Incident Investigation"
+    description: "Search for past incidents and root cause analyses."
+    example: "Show historical outage reports related to high CPU usage."
+  - name: "Anomaly Detection"
+    description: "Detect unusual patterns in logs."
+    example: "Are there any spikes in error rates over the last 24 hours?"
+
+infrastructure_system:
+  - name: "Infrastructure Configuration"
+    description: "Retrieve details about system configurations."
+    example: "What are the current database connection settings?"
+  - name: "Deployment Status"
+    description: "Check CI/CD pipeline status."
+    example: "Is the latest deployment successful?"
+  - name: "Performance Metrics"
+    description: "Fetch system health metrics."
+    example: "Get CPU and memory usage for the last 30 minutes."
+  - name: "Terraform / IaC"
+    description: "Retrieve or validate Infrastructure as Code definitions."
+    example: "Show the latest Terraform state for the production environment."
+
+documentation_knowledge:
+  - name: "Best Practices"
+    description: "Retrieve guidelines on development and operations."
+    example: "What is the best way to handle database connection pooling?"
+  - name: "Security & Compliance"
+    description: "Fetch security policies or compliance guidelines."
+    example: "What are the data encryption policies for stored customer data?"
+  - name: "Troubleshooting Guides"
+    description: "Provide structured steps for debugging."
+    example: "How to fix a failed Kubernetes pod?"
+  - name: "User Onboarding"
+    description: "Retrieve information useful for new team members."
+    example: "What is the process to set up a local development environment?"
+
+general_misc:
+  - name: "General Inquiry"
+    description: "Broad or unclear questions requiring clarification."
+    example: "Tell me about how our authentication works."
+  - name: "Cross-Domain Search"
+    description: "Queries spanning multiple categories."
+    example: "Find logs and related code for the last API failure."
+  - name: "Trend Analysis"
+    description: "Identify patterns over time."
+    example: "Show error trends for the last month."
+  - name: "Historical Comparisons"
+    description: "Compare current data with past benchmarks."
+    example: "How does current API latency compare to last quarter?"
